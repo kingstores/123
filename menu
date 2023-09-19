@@ -82,7 +82,7 @@ GREEN='\033[0;32m'
 grenbo="\e[92;1m"
 YELL='\033[0;33m'
 KONENG="\033[1;93m"
-Dev="RVPN STORES"
+Dev="CANDRA-VPN-STORE"
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 ) 
 CITY=$(curl -s ipinfo.io/city )
 NS=$(cat /etc/xray/dns)
@@ -153,7 +153,7 @@ else
 fi
 clear
 echo -e "\033[1;93m┌─────────────────────────────────────────────────┐${NC}"
-echo -e "\033[1;93m│ ${BGX}               ARI VPN STORES               ${NC} ${NC}"
+echo -e "\033[1;93m│ ${BGX}               king-stores               ${NC} ${NC}"
 echo -e "\033[1;93m└─────────────────────────────────────────────────┘${NC}"
 echo -e "\033[1;93m┌─────────────────────────────────────────────────┐${NC}"
 echo -e "\033[1;93m│ ${NC}System OS${NC}     : ${NC}$MODEL${NC}"
