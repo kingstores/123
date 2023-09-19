@@ -25,11 +25,12 @@ clear
 echo -e "\033[96m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e " \e[1;97m             CREATE TRIALL SSH OVPN ACCOUNT       \e[0m"
 echo -e "\033[96m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-LOGIN=Trial-SSH`</dev/urandom tr -dc 0-9 | head -c3`
-PASSWD=1Jam
+LOGIN=KING-STORES`</dev/urandom tr -dc 0-9 | head -c3`
+PASSWD=TRIALMULU
 EXPIRED=1
 useradd -e `date -d "$EXPIRED days" +"%H"` -s /bin/false -M $LOGIN
 exp="$(chage -l $LOGIN | grep "Account expires" | awk -F": " '{print $2}')"
+hariini=`date -d "0 days" +"%Y-%m-%d"`
 echo -e "$PASSWD\n$PASSWD\n"|passwd $LOGIN &> /dev/null
 
 if [[ ${c} != "0" ]]; then
@@ -52,6 +53,7 @@ Format SSH OVPN Triall Account
 
 Username         : $LOGIN
 Password         : $PASSWD
+created          : $hariini
 Expired          : $exp
 _______________________________
 IP               : $IP
@@ -87,36 +89,37 @@ TEXT="
 <code>───────────────────────────</code>
 <code>      SSH OVPN Account     </code>
 <code>───────────────────────────</code>
-<code>Username         : </code><code>$LOGIN</code>
-<code>Password         : </code><code>$PASSWD</code>
-<code>Expired          : $exp</code>
+<code>Username        : </code><code>$LOGIN</code>
+<code>Password        : </code><code>$PASSWD</code>
+<code>created         : </code><code>$hariini</code>
+<code>Expired         : </code>$exp</code>
 <code>───────────────────────────</code>
-<code>Host             : </code><code>$domain</code>
-<code>Host Slowdns     : </code><code>${NS}</code>
-<code>Location         : $CITY</code>
-<code>SSH UDP     : </code><code>1-65535</code>
-<code>OpenSSH     : 443, 80, 22</code>
-<code>Dropbear    : 143, 109</code>
-<code>Dropbear WS : 443, 109</code>
-<code>DNS         : 443, 53, 22</code> 
-<code>SSH WS      : 80 </code>
-<code>SSH SSL WS  : 443</code>
-<code>SSL/TLS     : 443</code>
-<code>OVPN WS SSL : 443</code>
-<code>OVPN SSL    : 443</code>
-<code>OVPN TCP    : 443, 1194</code>
-<code>OVPN UDP    : 2200</code>
-<code>Proxy Squid      : 3128</code>
-<code>BadVPN UDP       : 7100, 7300, 7300</code>
-<code>Pub Key          : </code><code>${PUB}</code>
+<code>Host            : </code><code>$domain</code>
+<code>Host Slowdns    : </code><code>${NS}</code>
+<code>Location        : $CITY</code>
+<code>SSH UDP         : </code><code>1-65535</code>
+<code>OpenSSH         : 443, 80, 22</code>
+<code>Dropbear        : 143, 109</code>
+<code>Dropbear WS     : 443, 109</code>
+<code>DNS             : 443, 53, 22</code> 
+<code>SSH WS          : 80 </code>
+<code>SSH SSL WS      : 443</code>
+<code>SSL/TLS         : 443</code>
+<code>OVPN WS SSL     : 443</code>
+<code>OVPN SSL        : 443</code>
+<code>OVPN TCP        : 443, 1194</code>
+<code>OVPN UDP        : 2200</code>
+<code>Proxy Squid     : 3128</code>
+<code>BadVPN UDP      : 7100, 7300, 7300</code>
+<code>Pub Key         : </code><code>${PUB}</code>
 <code>───────────────────────────</code>
-<code>Payload WS       : GET / HTTP/1.1[crlf]Host: $domain[crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]</code>
-<code>Payload WSS      : GET wss://[host]/ HTTP/1.1[crlf]Host: $domain[host_port][crlf]Upgrade: Websocket[crlf]Connection: Keep-Alive[crlf]Upgrade: websocket[crlf][crlf]</code>
+<code>Payload WS      : GET / HTTP/1.1[crlf]Host: $domain[crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]</code>
+<code>Payload WSS     : GET wss://[host]/ HTTP/1.1[crlf]Host: $domain[host_port][crlf]Upgrade: Websocket[crlf]Connection: Keep-Alive[crlf]Upgrade: websocket[crlf][crlf]</code>
 <code>───────────────────────────</code>
-<code>OpenVPN WS SSL   : </code>https://$domain:81/"$domain"-ws-ssl.ovpn
-<code>OpenVPN SSL      : </code>https://$domain:81/"$domain"-ssl.ovpn
-<code>OpenVPN TCP      : </code>https://$domain:81/"$domain"-tcp.ovpn
-<code>OpenVPN UDP      : </code>https://$domain:81/"$domain"-udp.ovpn
+<code>OpenVPN WS SSL  : </code>https://$domain:81/"$domain"-ws-ssl.ovpn
+<code>OpenVPN SSL     : </code>https://$domain:81/"$domain"-ssl.ovpn
+<code>OpenVPN TCP     : </code>https://$domain:81/"$domain"-tcp.ovpn
+<code>OpenVPN UDP     : </code>https://$domain:81/"$domain"-udp.ovpn
 <code>───────────────────────────</code>
 <code>Save Link Account: </code>https://$domain:81/ssh-$LOGIN.txt
 <code>───────────────────────────</code>
@@ -128,6 +131,7 @@ echo -e " \e[1;97m             SUCCESS CREATE TRIALL ACCOUNT      \e[0m"
 echo -e "\033[96m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "Username         : $LOGIN"
 echo -e "Password         : $PASSWD"
+echo -e "created          : $hariini"
 echo -e "Expired          : $exp"
 echo -e "\033[96m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "Host             : $domain"
@@ -147,6 +151,7 @@ echo -e "OVPN UDP    : 2200"
 echo -e "Proxy Squid      : 3128"
 echo -e "BadVPN UDP       : 7100, 7300, 7300"
 echo -e "Pub Key          : ${PUB}"
+echo -e "SSH HC/TUN  : $domain:80@$LOGIN:$PASSWD"
 echo -e "\033[96m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "Payload WS       : GET / HTTP/1.1[crlf]Host: $domain[crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]"
 echo -e "Payload WSS      : GET wss://[host]/ HTTP/1.1[crlf]Host: $domain[host_port][crlf]Upgrade: Websocket[crlf]Connection: Keep-Alive[crlf]Upgrade: websocket[crlf][crlf]"
