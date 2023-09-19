@@ -3,7 +3,7 @@
 url_izin='https://raw.githubusercontent.com/kingstores/izin/main/izin'
 
 #IP VPS
-ip_vps=$(curl -sS ifconfig.me)
+ip_vps=$(curl -sS ipv4.icanhazip.com)
 
 # Mendapatkan isi file izin.txt dari URL
 izin=$(curl -s "$url_izin")
