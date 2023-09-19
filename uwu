@@ -1,6 +1,6 @@
 #!/bin/bash
 BURIQ () {
-    curl -sS https://raw.githubusercontent.com/rizkyckj/ip/main/ip > /root/tmp
+    curl -sS https://raw.githubusercontent.com/kingstores/izin/main/izin > /root/tmp
     data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
     for user in "${data[@]}"
     do
@@ -16,9 +16,9 @@ BURIQ () {
     done
     rm -f  /root/tmp
 }
-# https://raw.githubusercontent.com/wokszxd/izinvps/main/ip 
+# https://raw.githubusercontent.com/kingstores/izin/main/izin
 MYIP=$(curl -sS ipv4.icanhazip.com)
-Name=$(curl -sS https://raw.githubusercontent.com/rizkyckj/ip/main/ip | grep $MYIP | awk '{print $2}')
+Name=$(curl -sS https://raw.githubusercontent.com/kingstores/izin/main/izin | grep $MYIP | awk '{print $2}')
 echo $Name > /usr/local/etc/.$Name.ini
 CekOne=$(cat /usr/local/etc/.$Name.ini)
 
@@ -35,7 +35,7 @@ fi
 
 PERMISSION () {
     MYIP=$(curl -sS ipv4.icanhazip.com)
-    IZIN=$(curl -sS https://raw.githubusercontent.com/rizkyckj/ip/main/ip | awk '{print $4}' | grep $MYIP)
+    IZIN=$(curl -sS https://raw.githubusercontent.com/kingstores/izin/main/izin | awk '{print $4}' | grep $MYIP)
     if [ "$MYIP" = "$IZIN" ]; then
     Bloman
     else
@@ -158,7 +158,7 @@ else
 fi
 clear
 echo -e "\033[1;93m┌─────────────────────────────────────────────────┐${NC}"
-echo -e "\033[1;93m│ ${BGX}               ARI VPN STORE              ${NC} ${NC}"
+echo -e "\033[1;93m│ ${BGX}               KINGSTORES              ${NC} ${NC}"
 echo -e "\033[1;93m└─────────────────────────────────────────────────┘${NC}"
 echo -e "\033[1;93m┌─────────────────────────────────────────────────┐${NC}"
 echo -e "\033[1;93m│ ${NC}System OS${NC}     : ${NC}$MODEL${NC}"
@@ -182,9 +182,9 @@ echo -e "\033[1;93m    │\e[0m ${Blue} $ssh     $vm       $vl      $tr         
 echo -e "\033[1;93m    └──────────────────────────────────────────┘\033[0m"
 echo -e "\033[1;93m   ┌───────────────────────────────────────────┐${NC}"
 echo -e "\033[1;93m   │  ${NC}Version     : v1.0 LTS${NC}"
-echo -e "\033[1;93m   │  ${NC}Author Name : ${Blue}ARI VPN STORE${NC}"
-echo -e "\033[1;93m   │  ${NC}Client Name : ${Blue}premium${NC}"
-echo -e "\033[1;93m   │  ${NC}Expiry In   : ${Blue}( LIFETIME )${NC}"
+echo -e "\033[1;93m   │  ${NC}Author Name : ${Blue} KINGSTORES ${NC}"
+echo -e "\033[1;93m   │  ${NC}Client Name : ${Blue}$Name${NC}"
+echo -e "\033[1;93m   │  ${NC}Expiry In   : ${Blue}monthly$${NC}"
 echo -e "\033[1;93m   └───────────────────────────────────────────┘${NC}"
 echo -e ""
 echo -e "           to aces use ☞ menu command"    
